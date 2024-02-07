@@ -1,0 +1,25 @@
+# Links
+- https://go.dev/tour/welcome/1
+
+# Notes
+## Reinstall Go and VS Code
+- redownload the correct arm64 versions for go and vscode
+- manually installed go from the [go list all versions and selected “ARM64”](https://go.dev/dl/).  Homebrew default installed amd64, which is for the older intel chips, not the new Apple Silicon M3 chip.
+- I also had to manually download the VS Code for apple silicon chip. Do not install the default Universal Build, [but instead the Apple Silicon version](https://code.visualstudio.com/#alt-downloads).
+
+## Set up VS Code for Go
+- Download Rosetta
+    - confluence doc: https://lightstep.atlassian.net/wiki/spaces/EPD/pages/2652274738/Downloading+Rosetta+for+x86+-+arm64+translation
+    - command: `softwareupdate --install-rosetta --agree-to-license`
+- Install Go extension
+    - `Command + Shift + X`
+    - Install 'Go'
+- Install Go tools
+    - `Command + Shift + P`
+    - Type "Go: Install/Update Tools”
+    - Select ALL the tools and install
+
+## How to Run Go in VS Code
+- documentation: https://learn.microsoft.com/en-us/azure/developer/go/configure-visual-studio-code
+- run commands from Terminal inside of vs code
+- initialize sample Go app (`go mod init sample-app`) 
