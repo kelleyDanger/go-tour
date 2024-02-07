@@ -16,6 +16,20 @@ func adder() func(int) int {
 	}
 }
 
+// EXERCISE: fibonacci closure
+// fibonacci is a func that returns a func that returns an int
+func fibonacci() func() int {
+	// 0 1 1 2 3 5 8 13 21 ...
+	// first = second
+	// second = first + second
+	first, second := 0, 1
+	return func() int {
+		saveFirst := first
+		first, second = second, first+second
+		return saveFirst
+	}
+}
+
 func main() {
 	pos, neg := adder(), adder()
 	for i := 0; i < 10; i++ {
@@ -23,5 +37,10 @@ func main() {
 			"Pos of ", i, pos(i),
 			"Neg of ", i, neg(-i),
 		)
+	}
+
+	fib := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(fib())
 	}
 }
